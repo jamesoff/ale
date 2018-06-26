@@ -21,7 +21,8 @@ function! ale_linters#cfyaml#cfnlint#Handle(buffer, lines) abort
     " Matches patterns like the following:
 	" cloudformation/cloud.yaml:41:3:41:15: [W8001] Condition NoRoute53DNS not used
     "let l:pattern = '^.*:\(\d\+\):\(\d\+\): \[\(error\|warning\)\] \(.\+\)$'
-	let l:pattern = '^.*:\(\d\+\):\(\d\+\):\(\d\+\):\(\d\+\): \[\(.\)\(\d\+\)\] \(.\+\)$'
+	"cloud.yaml:350:7:350:18:E3002:Invalid Property Resources/CognitoUserPool/Properties/UserPolName
+	let l:pattern = '^.*:\(\d\+\):\(\d\+\):\(\d\+\):\(\d\+\):\(.\)\(\d\+\):\(.\+\)$'
     let l:output = []
 
     for l:match in ale#util#GetMatches(a:lines, l:pattern)
